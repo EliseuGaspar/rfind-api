@@ -1,0 +1,34 @@
+{
+    "para-cadastrar" : [
+        {
+            "altitude": "123455.5878",
+            "cadastrada_em": "2023-06-26T07:39:47",
+            "descrição": "negócios em frente",
+            "id_farmacia": 1,
+            "latitude": "356776897.880",
+            "longitude": "4211113.68800",
+            "município": "Cazenga",
+            "nif": "7689757698889834",
+            "nome": "EcoFarma",
+            "província": "Luanda",
+            "rua": "São Miguel",
+            "stock": 0,
+            "telefone": "244937702795"
+        },
+        {
+            "altitude": "675455.5838",
+            "cadastrada_em": "2023-06-26T08:02:56",
+            "descrição": "24/24",
+            "id_farmacia": 2,
+            "latitude": "3564638738.730",
+            "longitude": "21798113.55800",
+            "município": "Rangel",
+            "nif": "56784345790083444",
+            "nome": "MacoFarma",
+            "província": "Luanda",
+            "rua": "Foto Cassua",
+            "stock": 0,
+            "telefone": "244923456789"
+        }
+    ]
+}

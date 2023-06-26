@@ -1,0 +1,1 @@
+from .farmacia_schemma import Farmacia, farmaciaschemma, farmaciachemma
