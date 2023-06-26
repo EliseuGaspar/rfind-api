@@ -1,6 +1,6 @@
 from flask import jsonify, make_response
 from flask_jwt_extended import jwt_required
-from ..app import app
+from ..app import app, cache
 from ..models import Farmacia
 
 
@@ -12,6 +12,7 @@ def deletar_farmacia(id):
     try:
         if farmacia:
             farmacia.apague_se()
+            cache.clear()
             return make_response(jsonify({
                 "Response":f"{farmacia.nome} apagada com sucesso."
             }), 200)

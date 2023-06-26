@@ -1,6 +1,6 @@
 from flask import jsonify, make_response, request
 from flask_jwt_extended import jwt_required
-from ..app import app
+from ..app import app, cache
 from ..models import Farmacia, farmaciachemma
 
 
@@ -21,6 +21,7 @@ def actualizar_farmacia(id):
         farmacia.longitude = request.json["longitude"]
         farmacia.altitude = request.json["altitude"]
         farmacia.cadastrar()
+        cache.clear()
         return make_response(jsonify({
             "Response":farmaciachemma.dump(farmacia)
         }))

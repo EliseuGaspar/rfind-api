@@ -1,6 +1,6 @@
 from flask import jsonify, make_response, request
 from flask_jwt_extended import jwt_required
-from ..app import app
+from ..app import app, cache
 from ..models import Farmacia
 
 
@@ -14,6 +14,7 @@ def cadastrar_farmacia():
         nova_farmacia = Farmacia(corpo["telefone"],corpo["nif"],corpo["nome"],corpo["descrição"],corpo["província"],corpo["município"],corpo["rua"],corpo["latitude"],corpo["longitude"],corpo["altitude"])
         nova_farmacia.cadastre_se()
         if nova_farmacia.confirmar_cadastro():
+            cache.clear()
             return make_response(jsonify({"Response":f"Farmacia {corpo['nome']} cadastrada com sucesso!"}),200)
         return make_response(jsonify({"Response":f"Ocorreu um erro durante o cadastro da farmacia {corpo['nome']}"}),400)
     except:

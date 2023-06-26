@@ -1,7 +1,8 @@
 from flask import jsonify, make_response, request
 from flask_jwt_extended import create_access_token, jwt_required
 from datetime import timedelta as td
-from ..app import app, db
+
+from ..app import app, db, cache
 from ..models import Farmacia, farmaciaschemma
 
 
@@ -28,6 +29,7 @@ def login():
 
 @app.get('/farmacias')
 @jwt_required()
+@cache.cached(timeout=60)
 def pegar_farmacias():
     farmacias = Farmacia.query.all()
     return make_response(

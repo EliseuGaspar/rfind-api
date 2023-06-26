@@ -1,1 +1,1 @@
-from .app import app, db, ma
+from .app import app, db, ma, cache
